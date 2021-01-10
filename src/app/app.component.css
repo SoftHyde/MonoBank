@@ -1,0 +1,8 @@
+.banner{
+    background-color: green;text-align: center;font-size:larger;font-weight:bolder; 
+    background-image: url(https://png2.cleanpng.com/sh/0c591519a87ff1e5384b70047ef76a5c/L0KzQYm3VMA3N5R3fZH0aYP2gLBuTf1wdpD1h95ELYLsc7m0lf5kdJYyiNd3bonlcbj6Tfxwb5CyetHqcnSwd7L0hb1jd5J3fJ9wYX3oPYbog8dlbJQ6e6IBY3K7Poa6V8g3OmM1Sac7M0C3R4mAV8c5QGMziNDw/kisspng-monopoly-rich-uncle-pennybags-logo-board-game-board-game-5ac7ddc5c06cb8.5378622015230478777882.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: auto;
+    background-position: center;
+}
