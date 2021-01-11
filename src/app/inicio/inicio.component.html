@@ -1,1 +1,18 @@
-<p>Aca empieza el html del componente inicio: AHORA HACE ALGO</p>
+<div class="container">
+  <div class="container col-md-6" style="text-align: center;">
+    <label style="margin-right: 10px;"> Lista de jugadores - </label>
+    <button class="btn btn-primary" style="margin-right: 10px;" (click)="agregarJugador()" id="btn+"> + </button>
+    <button class="btn btn-danger" style="margin-right: 10px;" (click)="eliminarJugador()"> - </button><br><br>
+    <div class="row" *ngFor="let item of this.obtenerJugadores(); let indice=index">
+      <div class="col">
+        <label> Jugador {{indice+1}}: </label>
+      </div>
+      <div class="col">
+        <input type="text" id="player_name" name="player_name" placeholder="Nombre Jugador..." style="margin-right: 10px;">
+      </div>
+    </div><br>
+    <label> Ingrese el monto inicial: </label>
+    <input type="number" id="initial_amount" name="initial_amount" placeholder="{{1500| currency}}" style="margin-left: 10px;"><br>
+    <button class="btn btn-primary"> Comenzar! </button>
+  </div>
+</div>

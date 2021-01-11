@@ -1,3 +1,4 @@
+import { JugadoresService } from './services/jugadores.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -22,7 +23,7 @@ import { InicioComponent } from './inicio/inicio.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [JugadoresService], //si quiero que los servicios sean singleton tengo que declararlos aca
   bootstrap: [AppComponent]
 })
 export class AppModule { }
