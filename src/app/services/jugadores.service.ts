@@ -23,5 +23,8 @@ export class JugadoresService {
       this.players = this.players.filter(jug => jug.id!=eraseJugador.id);
     }
   }
+  actualizarMonto(monto:number):void {
+    
+  }
 
 }

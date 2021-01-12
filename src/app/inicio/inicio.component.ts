@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  monto=1500;
 
   constructor(private jugadoresService: JugadoresService) { }
 
@@ -19,11 +20,18 @@ export class InicioComponent implements OnInit {
   }
 
   agregarJugador(): void{
-    var player: Jugador = new Jugador(this.jugadoresService.players.length, "jugador "+this.jugadoresService.players.length+1,0);
+    var player: Jugador = new Jugador(this.jugadoresService.players.length, "jugador "+(this.jugadoresService.players.length+1),0);
     this.jugadoresService.agregarJugador(player);
   }
 
   eliminarJugador(): void{
     this.jugadoresService.eliminarJugador(this.jugadoresService.players[this.jugadoresService.players.length-1]);
   }
+
+  confirmarJugadores():void{
+    this.obtenerJugadores().forEach(jugador => {
+      jugador.monto=this.monto;
+    });
+  }
+
 }
