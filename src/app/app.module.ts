@@ -10,6 +10,7 @@ import { JugadorComponent } from './juego/jugador/jugador.component';
 import { GestorJugadorComponent } from './juego/gestor-jugador/gestor-jugador.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [JugadoresService], //si quiero que los servicios sean singleton tengo que declararlos aca
   bootstrap: [AppComponent]

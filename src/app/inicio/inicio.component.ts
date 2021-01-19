@@ -1,6 +1,7 @@
 import { Jugador } from './../model/jugador';
 import { JugadoresService } from './../services/jugadores.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class InicioComponent implements OnInit {
   monto=1500;
 
-  constructor(private jugadoresService: JugadoresService) { }
+  constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ export class InicioComponent implements OnInit {
     this.obtenerJugadores().forEach(jugador => {
       jugador.monto=this.monto;
     });
+    this.ruta.navigate(['juego']);
   }
 
 }
