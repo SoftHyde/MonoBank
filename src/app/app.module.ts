@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HistorialComponent } from './historial/historial.component';
+import { HistorialComponent } from './juego/historial/historial.component';
 import { JuegoComponent } from './juego/juego.component';
 import { ListaJugadoresComponent } from './juego/lista-jugadores/lista-jugadores.component';
 import { JugadorComponent } from './juego/jugador/jugador.component';

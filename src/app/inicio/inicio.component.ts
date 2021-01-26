@@ -9,7 +9,7 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  monto=1500;
+  monto = 1500;
 
   constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
 
