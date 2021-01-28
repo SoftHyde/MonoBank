@@ -1,4 +1,6 @@
+import { Jugador } from './../../model/jugador';
 import { Component, OnInit } from '@angular/core';
+import { JugadoresService } from 'src/app/services/jugadores.service';
 
 @Component({
   selector: 'app-jugador',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JugadorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private jugadoresService: JugadoresService) { }
 
   ngOnInit(): void {
   }
 
+  obtenerJugadores(): Array<Jugador>{
+    return this.jugadoresService.players;
+  }
+
+  actualizarPagina(): number{
+    console.log("estamos en jugador")
+    return this.jugadoresService.playerSeleccionado;
+  }
 }

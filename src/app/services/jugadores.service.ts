@@ -6,6 +6,7 @@ import { Jugador } from '../model/jugador';
 })
 export class JugadoresService {
 
+  playerSeleccionado:number = 0 //es el indice del jugador
   players:Array<Jugador> = new Array<Jugador>();
   constructor() {
     this.players.push(new Jugador(0,"jugador 1",0));
@@ -23,8 +24,9 @@ export class JugadoresService {
       this.players = this.players.filter(jug => jug.id!=eraseJugador.id);
     }
   }
-  actualizarMonto(monto:number):void {
-    
-  }
 
+  actualizarJugadorSeleccionado(indice: number): void{
+    this.playerSeleccionado=indice;
+    console.log("se actualizo el jugador seleccionado del servicio")
+  }
 }
