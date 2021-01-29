@@ -25,8 +25,13 @@ export class JugadoresService {
     }
   }
 
+  modificarMonto(jugadorModificar: Jugador, nuevoMonto: number): void{
+    if (nuevoMonto > 0){
+      this.players.find(jug => jug.id==jugadorModificar.id).monto=nuevoMonto;
+    }
+  }
+
   actualizarJugadorSeleccionado(indice: number): void{
     this.playerSeleccionado=indice;
-    console.log("se actualizo el jugador seleccionado del servicio")
   }
 }

@@ -9,7 +9,7 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  monto = 1500;
+  monto: string
 
   constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
 
@@ -30,10 +30,19 @@ export class InicioComponent implements OnInit {
   }
 
   confirmarJugadores():void{
-    this.obtenerJugadores().forEach(jugador => {
-      jugador.monto=this.monto;
-    });
-    this.ruta.navigate(['juego']);
+    if (parseInt(this.monto)>0){
+      this.obtenerJugadores().forEach(jugador => {
+        jugador.monto=parseInt(this.monto);
+      });
+      this.ruta.navigate(['juego']);
+    }
+  }
+
+  verificarMonto(): boolean{
+    if (parseInt(this.monto)<=0){
+      return true //ta mal
+    }
+    else return false; //ta bien
   }
 
 }

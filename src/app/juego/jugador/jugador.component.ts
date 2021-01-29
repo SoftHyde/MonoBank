@@ -19,7 +19,6 @@ export class JugadorComponent implements OnInit {
   }
 
   actualizarPagina(): number{
-    console.log("estamos en jugador")
     return this.jugadoresService.playerSeleccionado;
   }
 }

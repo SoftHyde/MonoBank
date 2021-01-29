@@ -3,9 +3,8 @@
     <img src="https://steamuserimages-a.akamaihd.net/ugc/450734459498588473/5100C8266BBAD384453FDA23BC3979F982908E60/" style="height: 100%; width: 100%;">
   </div>
   <div class="col-md-6">
-    <p class="container jumbotron" style="background-color: darkkhaki; padding: 10px;">
-      <input class="form-control" style="background-color: darkkhaki; text-align: center;" type="number" id="amount" name="amount" placeholder="{{0| currency}}">
-    </p>
+    <p>Tiempo jugado: {{(this.hor | number :'2.0-0') + ":" + (this.min | number :'2.0-0') + ":" + (this.seg | number :'2.0-0')}}</p>
+    <input class="form-control" style="background-color: darkkhaki; text-align: center;" type="number" id="amount" name="amount" placeholder="{{0| currency}}"> <br>
     <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
       <button class="btn btn-primary col-md-5">Cobrar</button>
       <button class="btn btn-primary col-md-5">Pagar</button>
