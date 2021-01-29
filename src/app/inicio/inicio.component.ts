@@ -9,7 +9,7 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  monto: string
+  monto: string = "1500"
 
   constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
 
@@ -39,7 +39,7 @@ export class InicioComponent implements OnInit {
   }
 
   verificarMonto(): boolean{
-    if (parseInt(this.monto)<=0){
+    if (parseInt(this.monto)<=0 || this.monto==null){
       return true //ta mal
     }
     else return false; //ta bien
