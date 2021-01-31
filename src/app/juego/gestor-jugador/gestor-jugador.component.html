@@ -4,10 +4,32 @@
   </div>
   <div class="col-md-6">
     <p>Tiempo jugado: {{(this.hor | number :'2.0-0') + ":" + (this.min | number :'2.0-0') + ":" + (this.seg | number :'2.0-0')}}</p>
-    <input class="form-control" style="background-color: darkkhaki; text-align: center;" type="number" id="amount" name="amount" placeholder="{{0| currency}}"> <br>
+    <input class="form-control" style="border-color: green; text-align: center;" type="number" id="amount" name="amount" placeholder="{{0| currency}}"> <br>
     <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
-      <button class="btn btn-primary col-md-5">Cobrar</button>
-      <button class="btn btn-primary col-md-5">Pagar</button>
+      <button class="btn btn-outline-primary col-md-5">Cobrar</button>
+      <button class="btn btn-outline-primary col-md-5">Pagar</button>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -10,8 +10,8 @@
 <div class="container">
   <div class="container col-md-6" style="text-align: center;">
     <label style="margin-right: 10px;"> Lista de jugadores - </label>
-    <button class="btn btn-primary" style="margin-right: 10px;" (click)="agregarJugador()"> + </button>
-    <button class="btn btn-danger" style="margin-right: 10px;" (click)="eliminarJugador()"> - </button><br><br>
+    <button class="btn btn-outline-primary" style="margin-right: 10px;" (click)="agregarJugador()"> + </button>
+    <button class="btn btn-outline-danger" style="margin-right: 10px;" (click)="eliminarJugador()"> - </button><br><br>
     <div class="row" style="padding-bottom: 10px;" *ngFor="let item of this.obtenerJugadores(); let indice=index">
       <div class="col">
         <label> Nombre jugador {{indice+1}}: </label>
@@ -21,8 +21,8 @@
       </div>
     </div><br>
     <label> Ingrese el monto inicial: </label>
-    <input type="number" [(ngModel)]="monto" class="form-control" style="text-align: center; background-color: darkkhaki;" placeholder="{{1500| currency}}" min="0">
-    <small class="text-danger" *ngIf="verificarMonto()">Monto erroneo. Debe ser un numero mayor a 0</small>
-    <br><button class="btn btn-primary" [disabled]="verificarMonto()" (click)="confirmarJugadores()"> Comenzar! </button>
+    <input type="number" [(ngModel)]="monto" class="form-control" style="text-align: center; border-color: green;" placeholder="{{1500| currency}}" min="0">
+    <small class="text-danger" *ngIf="verificarMonto()">Escribí un numero mayor a 0</small>
+    <br><button class="btn btn-outline-primary" [disabled]="verificarMonto()" (click)="confirmarJugadores()"> Comenzar! </button>
   </div>
 </div>
