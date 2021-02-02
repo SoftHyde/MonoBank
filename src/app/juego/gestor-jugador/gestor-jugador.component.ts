@@ -1,5 +1,7 @@
 import { JugadoresService } from 'src/app/services/jugadores.service';
 import { Component, OnInit } from '@angular/core';
+import { Jugador } from 'src/app/model/jugador';
+declare var $: any;
 
 @Component({
   selector: 'app-gestor-jugador',
@@ -18,6 +20,14 @@ export class GestorJugadorComponent implements OnInit {
     this.contador();
   }
 
+  obtenerIndiceJugadorSeleccionado(): number{
+    return this.jugadoresService.playerSeleccionado;
+  }
+
+  obtenerJugadorSeleccionado(): Jugador{
+    return this.jugadoresService.players[this.jugadoresService.playerSeleccionado];
+  }
+
   contador() {
     this.interval = setInterval(() => {
       this.seg++
@@ -30,6 +40,12 @@ export class GestorJugadorComponent implements OnInit {
         }
       }
     },1000)
+  }
+
+  obtenerJugadoresRestantes(jugadorSeleccionado: number): Array<Jugador>{
+    var players:Array<Jugador> = this.jugadoresService.players;
+    players = players.filter(jug => jug.id!=this.jugadoresService.players[jugadorSeleccionado].id);
+    return players;
   }
 
 }

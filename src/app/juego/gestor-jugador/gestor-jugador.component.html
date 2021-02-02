@@ -6,28 +6,56 @@
     <p>Tiempo jugado: {{(this.hor | number :'2.0-0') + ":" + (this.min | number :'2.0-0') + ":" + (this.seg | number :'2.0-0')}}</p>
     <input class="form-control" style="border-color: green; text-align: center;" type="number" id="amount" name="amount" placeholder="{{0| currency}}"> <br>
     <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
-      <button class="btn btn-outline-primary col-md-5">Cobrar</button>
-      <button class="btn btn-outline-primary col-md-5">Pagar</button>
+      <button class="btn btn-outline-primary col-md-5" data-toggle="modal" data-target="#modalCobrar">Cobrar</button>
+      <button class="btn btn-outline-primary col-md-5" data-toggle="modal" data-target="#modalPagar">Pagar</button>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Cobrar -->
+<div class="modal fade in" id="modalCobrar" tabindex="-1" role="dialog" aria-labelledby="modalCobrarLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="modalCobrarLabel"> {{ this.obtenerJugadorSeleccionado().nombre}}: escoja a quien cobrar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <!-- Aca diseño la modal -->
+        <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
+          <button class="btn btn-outline-primary col-md-5">Banco</button>
+          <button class="btn btn-outline-primary col-md-5">Todos</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Pagar -->
+<div class="modal fade in" id="modalPagar" tabindex="-1" role="dialog" aria-labelledby="modalPagarLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalPagarLabel">{{ this.obtenerJugadorSeleccionado().nombre}}: escoja a quien pagar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Aca diseño la modal -->
+        <p style="text-align: center;">Casos Generales:</p>
+        <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
+          <button class="btn btn-outline-primary col-md-5">Banco</button>
+          <button class="btn btn-outline-primary col-md-5">Todos</button>
+        </div><br>
+        <p style="text-align: center;">Jugadores:</p>
+        <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
+          <div class="col" *ngFor="let item of this.obtenerJugadoresRestantes(this.obtenerIndiceJugadorSeleccionado())">
+            <button class="btn btn-outline-primary col-md-12"> {{item.nombre}} </button>
+          </div>
+        </div><br>
       </div>
     </div>
   </div>
