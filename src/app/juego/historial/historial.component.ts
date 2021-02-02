@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialComponent implements OnInit {
 
+  public historial: string = 'Bienvenido a Monopoly!. Que comience la partida';
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  pataPuto(){
+    this.historial="-Pata puto\n\n" +  this.historial;
+    console.log(this.historial)
   }
 
 }
