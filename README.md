@@ -1,5 +1,6 @@
 # Monopoly
 
+La idea es crear una aplicacion que nos acompañe mientras jugamos para automatizar algunas cosas del juego, como el manejo de plata, propiedades adquiridas y disponer ademas de un historial y las reglas del juego de una manera rapida
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
 ## Development server
