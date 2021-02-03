@@ -6,11 +6,18 @@ import { Jugador } from '../model/jugador';
 })
 export class JugadoresService {
 
+  jugadoresListos: boolean = false;
   playerSeleccionado:number = 0 //es el indice del jugador
   players:Array<Jugador> = new Array<Jugador>();
+  historial: string = 'Bienvenido a Monopoly!. Que comience la partida';
+
   constructor() {
-    this.players.push(new Jugador(0,"jugador 1",0));
-    this.players.push(new Jugador(1,"jugador 2",0))
+    this.players.push(new Jugador(0,"jugador 1",0,false));
+    this.players.push(new Jugador(1,"jugador 2",0,false))
+  }
+
+  actualizarHistorial(text: string){
+    this.historial= text +  this.historial;
   }
 
   agregarJugador(newJugador: Jugador){
@@ -34,4 +41,10 @@ export class JugadoresService {
   actualizarJugadorSeleccionado(indice: number): void{
     this.playerSeleccionado=indice;
   }
+
+  // verificarBancarrota(jugador: Jugador){
+  //   this.players.forEach(jug => {
+  //     if (jug.monto<=0) jug.estaBancarrota=true;
+  //   });
+  // }
 }

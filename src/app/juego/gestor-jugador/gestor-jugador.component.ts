@@ -1,7 +1,6 @@
 import { JugadoresService } from 'src/app/services/jugadores.service';
 import { Component, OnInit } from '@angular/core';
 import { Jugador } from 'src/app/model/jugador';
-declare var $: any;
 
 @Component({
   selector: 'app-gestor-jugador',
@@ -47,11 +46,23 @@ export class GestorJugadorComponent implements OnInit {
     players = players.filter(jug => jug.id!=this.jugadoresService.players[jugadorSeleccionado].id);
     return players;
   }
+
+  // verificarEstadoJugadores(): boolean{
+  //   this.jugadoresService.players.forEach(element => {
+  //     if (element.estaBancarrota==true) return true;
+  //   });
+  //   return false;
+  // }
+
   cobrarBanco():void{
     this.obtenerJugadorSeleccionado().monto=this.obtenerJugadorSeleccionado().monto+this.monto;
+    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " del banco\n\n");
+    this.monto=null;
   }
   pagarBanco():void{
     this.obtenerJugadorSeleccionado().monto=this.obtenerJugadorSeleccionado().monto-this.monto;
+    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " al banco\n\n");
+    this.monto=null;
   }
 
   verificarMonto(): boolean{
@@ -67,6 +78,9 @@ export class GestorJugadorComponent implements OnInit {
         this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto-this.monto;
     }
     this.obtenerJugadorSeleccionado().monto+=this.monto*(this.jugadoresService.players.length-1);
+    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " a todos los jugadores\n\n");
+    this.monto=null;
+
   }
 
   pagarTodos():void{
@@ -74,8 +88,20 @@ export class GestorJugadorComponent implements OnInit {
     for(var i=0; i<this.jugadoresService.players.length;i++ ){
       if(i != this.obtenerIndiceJugadorSeleccionado())
       this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto+this.monto;
-  }
+    }
+    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " a todos los jugadores\n\n");
+    this.monto=null;
   }
 
+  pagarJugador(jugador: Jugador):void{
+    this.jugadoresService.players.forEach(jug => {
+      if (jug.id==jugador.id) {
+        console.log(jug.nombre)
+        jug.monto += this.monto;}
+    });
+    // this.jugadoresService.players.find(jug => jug.id=jugador.id).monto += this.monto;
+    this.obtenerJugadorSeleccionado().monto-=this.monto;
+    this.monto=null;
+  }
 
 }

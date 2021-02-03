@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Jugador } from '../model/jugador';
 import { JugadoresService } from '../services/jugadores.service';
 
@@ -9,9 +10,12 @@ import { JugadoresService } from '../services/jugadores.service';
 })
 export class JuegoComponent implements OnInit {
 
-  constructor(private jugadoresService: JugadoresService) { }
+  constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
 
   ngOnInit(): void {
+    if (this.jugadoresService.jugadoresListos==false){
+      this.ruta.navigate(['']);
+    }
   }
 
   obtenerJugadores(): Array<Jugador>{

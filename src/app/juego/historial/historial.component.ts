@@ -1,3 +1,4 @@
+import { JugadoresService } from 'src/app/services/jugadores.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialComponent implements OnInit {
 
-  public historial: string = 'Bienvenido a Monopoly!. Que comience la partida';
-  constructor() { }
+
+  constructor(private juadoresService: JugadoresService) { }
 
   ngOnInit(): void {
   }
 
+  obtenerHistorial(): string{
+    return this.juadoresService.historial;
+  }
+
   pataPuto(){
-    this.historial="-Pata puto\n\n" +  this.historial;
-    console.log(this.historial)
+    this.juadoresService.actualizarHistorial("-Pata Puto \n\n")
   }
 
 }

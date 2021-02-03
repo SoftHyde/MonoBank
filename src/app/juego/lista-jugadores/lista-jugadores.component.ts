@@ -20,7 +20,6 @@ export class ListaJugadoresComponent implements OnInit {
 
   jugadorSeleccionado(indice:number): void {
     this.jugadoresService.actualizarJugadorSeleccionado(indice);
-    console.log("se selecciono el jugador de lista jugadores")
   }
 
 }

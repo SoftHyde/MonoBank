@@ -21,7 +21,7 @@ export class InicioComponent implements OnInit {
   }
 
   agregarJugador(): void{
-    var player: Jugador = new Jugador(this.jugadoresService.players.length, "jugador "+(this.jugadoresService.players.length+1),0);
+    var player: Jugador = new Jugador(this.jugadoresService.players.length, "jugador "+(this.jugadoresService.players.length+1),0,false);
     this.jugadoresService.agregarJugador(player);
   }
 
@@ -34,6 +34,7 @@ export class InicioComponent implements OnInit {
       this.obtenerJugadores().forEach(jugador => {
         jugador.monto=parseInt(this.monto);
       });
+      this.jugadoresService.jugadoresListos=true;
       this.ruta.navigate(['juego']);
     }
   }
