@@ -9,7 +9,7 @@ declare var $: any;
   styleUrls: ['./gestor-jugador.component.css']
 })
 export class GestorJugadorComponent implements OnInit {
-
+  monto:number;
   seg: number = 0;
   min: number = 0;
   hor: number = 0;
@@ -47,5 +47,35 @@ export class GestorJugadorComponent implements OnInit {
     players = players.filter(jug => jug.id!=this.jugadoresService.players[jugadorSeleccionado].id);
     return players;
   }
+  cobrarBanco():void{
+    this.obtenerJugadorSeleccionado().monto=this.obtenerJugadorSeleccionado().monto+this.monto;
+  }
+  pagarBanco():void{
+    this.obtenerJugadorSeleccionado().monto=this.obtenerJugadorSeleccionado().monto-this.monto;
+  }
+
+  verificarMonto(): boolean{
+    if (this.monto<=0 || this.monto==null){
+      return true //ta mal
+    }
+    else return false; //ta bien
+  }
+
+  cobrarTodos():void{
+    for(var i=0; i<this.jugadoresService.players.length;i++ ){
+        if(i != this.obtenerIndiceJugadorSeleccionado())
+        this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto-this.monto;
+    }
+    this.obtenerJugadorSeleccionado().monto+=this.monto*(this.jugadoresService.players.length-1);
+  }
+
+  pagarTodos():void{
+    this.obtenerJugadorSeleccionado().monto-=this.monto*(this.jugadoresService.players.length-1);
+    for(var i=0; i<this.jugadoresService.players.length;i++ ){
+      if(i != this.obtenerIndiceJugadorSeleccionado())
+      this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto+this.monto;
+  }
+  }
+
 
 }
