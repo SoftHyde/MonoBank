@@ -2,12 +2,13 @@
   <div class="col-md-6">
     <img src="https://steamuserimages-a.akamaihd.net/ugc/450734459498588473/5100C8266BBAD384453FDA23BC3979F982908E60/" style="height: 100%; width: 100%;">
   </div>
-  <div class="col-md-6">
-    <p>Tiempo jugado: {{(this.hor | number :'2.0-0') + ":" + (this.min | number :'2.0-0') + ":" + (this.seg | number :'2.0-0')}}</p>
-    <input class="form-control" style="border-color: green; text-align: center;" type="number" placeholder="{{0| currency}}" [(ngModel)]='monto' min="0"> <br>
-    <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
-      <button class="btn btn-outline-primary col-md-5" data-toggle="modal" data-target="#modalCobrar" [disabled]="verificarMonto()">Cobrar</button>
-      <button class="btn btn-outline-primary col-md-5" data-toggle="modal" data-target="#modalPagar" [disabled]="verificarMonto()">Pagar</button>
+  <div class="col-md-6" style="display: flex; align-items: center;">
+    <div class="col-md-12">
+      <input class="form-control" style="border-color: green; text-align: center;" type="number" placeholder="{{0| currency}}" [(ngModel)]='monto' min="0"> <br>
+      <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
+        <button class="btn btn-outline-primary col-md-5" data-toggle="modal" data-target="#modalCobrar" [disabled]="verificarMonto()">Cobrar</button>
+        <button class="btn btn-outline-danger col-md-5" data-toggle="modal" data-target="#modalPagar" [disabled]="verificarMonto()">Pagar</button>
+      </div>
     </div>
   </div>
 </div>

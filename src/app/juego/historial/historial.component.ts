@@ -8,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialComponent implements OnInit {
 
-
+  seg: number = 0;
+  min: number = 0;
+  hor: number = 0;
+  interval;
   constructor(private juadoresService: JugadoresService) { }
 
   ngOnInit(): void {
+    this.contador();
+  }
+
+  contador() {
+    this.interval = setInterval(() => {
+      this.seg++
+      if (this.seg == 60){
+        this.min++;
+        this.seg = 0;
+        if (this.min == 60){
+          this.hor++;
+          this.min = 0;
+        }
+      }
+    },1000)
   }
 
   obtenerHistorial(): string{
@@ -19,7 +37,7 @@ export class HistorialComponent implements OnInit {
   }
 
   pataPuto(){
-    this.juadoresService.actualizarHistorial("-Pata Puto \n\n")
+    this.juadoresService.actualizarHistorial("Pata Puto \n\n")
   }
 
 }

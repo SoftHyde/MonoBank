@@ -6,6 +6,7 @@ import { Jugador } from '../model/jugador';
 })
 export class JugadoresService {
 
+  contador: number = 1;
   jugadoresListos: boolean = false;
   playerSeleccionado:number = 0 //es el indice del jugador
   players:Array<Jugador> = new Array<Jugador>();
@@ -17,7 +18,8 @@ export class JugadoresService {
   }
 
   actualizarHistorial(text: string){
-    this.historial= text +  this.historial;
+    this.historial= this.contador + ") " + text +  this.historial;
+    this.contador++;
   }
 
   agregarJugador(newJugador: Jugador){

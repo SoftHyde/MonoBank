@@ -9,14 +9,14 @@ import { Jugador } from 'src/app/model/jugador';
 })
 export class GestorJugadorComponent implements OnInit {
   monto:number;
-  seg: number = 0;
-  min: number = 0;
-  hor: number = 0;
-  interval;
+  // seg: number = 0;
+  // min: number = 0;
+  // hor: number = 0;
+  // interval;
   constructor(private jugadoresService:JugadoresService) { }
 
   ngOnInit(): void {
-    this.contador();
+    // this.contador();
   }
 
   obtenerIndiceJugadorSeleccionado(): number{
@@ -27,19 +27,19 @@ export class GestorJugadorComponent implements OnInit {
     return this.jugadoresService.players[this.jugadoresService.playerSeleccionado];
   }
 
-  contador() {
-    this.interval = setInterval(() => {
-      this.seg++
-      if (this.seg == 60){
-        this.min++;
-        this.seg = 0;
-        if (this.min == 60){
-          this.hor++;
-          this.min = 0;
-        }
-      }
-    },1000)
-  }
+  // contador() {
+  //   this.interval = setInterval(() => {
+  //     this.seg++
+  //     if (this.seg == 60){
+  //       this.min++;
+  //       this.seg = 0;
+  //       if (this.min == 60){
+  //         this.hor++;
+  //         this.min = 0;
+  //       }
+  //     }
+  //   },1000)
+  // }
 
   obtenerJugadoresRestantes(jugadorSeleccionado: number): Array<Jugador>{
     var players:Array<Jugador> = this.jugadoresService.players;
@@ -56,12 +56,12 @@ export class GestorJugadorComponent implements OnInit {
 
   cobrarBanco():void{
     this.obtenerJugadorSeleccionado().monto=this.obtenerJugadorSeleccionado().monto+this.monto;
-    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " del banco\n\n");
+    this.jugadoresService.actualizarHistorial("El jugador " + this.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " del Banco\n\n");
     this.monto=null;
   }
   pagarBanco():void{
     this.obtenerJugadorSeleccionado().monto=this.obtenerJugadorSeleccionado().monto-this.monto;
-    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " al banco\n\n");
+    this.jugadoresService.actualizarHistorial("El jugador " + this.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " al Banco\n\n");
     this.monto=null;
   }
 
@@ -78,7 +78,7 @@ export class GestorJugadorComponent implements OnInit {
         this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto-this.monto;
     }
     this.obtenerJugadorSeleccionado().monto+=this.monto*(this.jugadoresService.players.length-1);
-    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " a todos los jugadores\n\n");
+    this.jugadoresService.actualizarHistorial("El jugador " + this.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " a todos los jugadores\n\n");
     this.monto=null;
 
   }
@@ -89,18 +89,18 @@ export class GestorJugadorComponent implements OnInit {
       if(i != this.obtenerIndiceJugadorSeleccionado())
       this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto+this.monto;
     }
-    this.jugadoresService.actualizarHistorial("-El jugador " + this.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " a todos los jugadores\n\n");
+    this.jugadoresService.actualizarHistorial("El jugador " + this.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " a todos los jugadores\n\n");
     this.monto=null;
   }
 
   pagarJugador(jugador: Jugador):void{
     this.jugadoresService.players.forEach(jug => {
       if (jug.id==jugador.id) {
-        console.log(jug.nombre)
         jug.monto += this.monto;}
     });
     // this.jugadoresService.players.find(jug => jug.id=jugador.id).monto += this.monto;
     this.obtenerJugadorSeleccionado().monto-=this.monto;
+    this.jugadoresService.actualizarHistorial("El jugador " + this.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " al jugador " + jugador.nombre + "\n\n")
     this.monto=null;
   }
 
