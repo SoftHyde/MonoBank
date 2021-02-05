@@ -1,9 +1,33 @@
 <div class="col-md-12 container jumbotron" style="display: flex; justify-content: space-evenly;">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <p>{{this.obtenerJugadores()[this.actualizarPagina()].nombre}}</p>
     <p>Monto actual: ${{this.obtenerJugadores()[this.actualizarPagina()].monto}}</p>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-5">
     <p>Lista de propiedades</p>
+  </div>
+  <div class="col-md-2" style="display: flex; align-items: center;">
+    <button class="btn btn-outline-danger" data-toggle="modal" data-target="#bancarrotaModal"> X </button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="bancarrotaModal" tabindex="-1" role="dialog" aria-labelledby="bancarrotaModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bancarrotaModalLabel">Declarar Bancarrota</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> Una vez declarada la bancarrota, quedara eliminado del juego y no podras volver. ¿Estas seguro? </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="declararBancarrota()">Si</button>
+      </div>
+    </div>
   </div>
 </div>

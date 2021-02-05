@@ -21,4 +21,10 @@ export class JugadorComponent implements OnInit {
   actualizarPagina(): number{
     return this.jugadoresService.playerSeleccionado;
   }
+
+  declararBancarrota(){
+    this.jugadoresService.jugBancarrota(this.jugadoresService.playerSeleccionado);
+    this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " se ha declarado en bancarrota\n\n");
+    this.jugadoresService.actualizarJugadorSeleccionado(this.jugadoresService.obtenerJugadoresRestantes()[0])
+  }
 }

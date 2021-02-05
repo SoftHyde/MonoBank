@@ -15,10 +15,10 @@ export class ListaJugadoresComponent implements OnInit {
   }
 
   obtenerJugadores(): Array<Jugador>{
-    return this.jugadoresService.players;
+    return this.jugadoresService.players.filter(jug => jug.estaBancarrota==false);
   }
 
-  jugadorSeleccionado(indice:number): void {
+  jugadorSeleccionado(indice :Jugador): void {
     this.jugadoresService.actualizarJugadorSeleccionado(indice);
   }
 

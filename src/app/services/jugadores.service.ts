@@ -13,8 +13,16 @@ export class JugadoresService {
   historial: string = 'Bienvenido a Monopoly!. Que comience la partida';
 
   constructor() {
+    // this.players.push(new Jugador(0,"jugador 1",0,false));
+    // this.players.push(new Jugador(1,"jugador 2",0,false))
+  }
+  newGame(){
+    this.contador = 1;
+    this.players.splice(0,this.players.length);
     this.players.push(new Jugador(0,"jugador 1",0,false));
-    this.players.push(new Jugador(1,"jugador 2",0,false))
+    this.players.push(new Jugador(1,"jugador 2",0,false));
+    this.playerSeleccionado = 0;
+    this.historial = 'Bienvenido a Monopoly!. Que comience la partida';
   }
 
   actualizarHistorial(text: string){
@@ -40,13 +48,22 @@ export class JugadoresService {
     }
   }
 
-  actualizarJugadorSeleccionado(indice: number): void{
-    this.playerSeleccionado=indice;
+  actualizarJugadorSeleccionado(jug: Jugador): void{
+    this.playerSeleccionado=this.players.indexOf(jug);
+    // this.playerSeleccionado=indice;
   }
 
-  // verificarBancarrota(jugador: Jugador){
-  //   this.players.forEach(jug => {
-  //     if (jug.monto<=0) jug.estaBancarrota=true;
-  //   });
-  // }
+  obtenerJugadorSeleccionado(): Jugador{
+    return this.players[this.playerSeleccionado];
+  }
+
+  jugBancarrota(indiceJug: number){
+    this.players[indiceJug].estaBancarrota=true;
+  }
+
+  obtenerJugadoresRestantes(): Array<Jugador>{
+    var restantes:Array<Jugador> = this.players;
+    restantes = restantes.filter(jug => jug.id!=this.players[this.playerSeleccionado].id && jug.estaBancarrota==false);
+    return restantes;
+  }
 }

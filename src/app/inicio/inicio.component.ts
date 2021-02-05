@@ -14,6 +14,7 @@ export class InicioComponent implements OnInit {
   constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
 
   ngOnInit(): void {
+    this.jugadoresService.newGame();
   }
 
   obtenerJugadores(): Array<Jugador>{
