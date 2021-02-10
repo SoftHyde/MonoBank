@@ -7,7 +7,7 @@
   <router-outlet></router-outlet>
 </div>
 
-<!-- Modal Cobrar -->
+<!-- Modal Ayuda -->
 <div class="modal fade" id="modalAyuda" tabindex="-1" role="dialog" aria-labelledby="modalAyudaLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -18,73 +18,102 @@
         </button>
       </div>
       <div class="modal-body" style="text-align: justify;">
-        <h2>INSTRUCCIONES DEL MONOPOLY</h2><br>
-        Colocar el tablero sobre una mesa. Las cartas del Cofre del Azar y del Cofre de la Comunidad boca abajo en sus espacios asignados en el tablero. Cada jugador elige una ficha para representarlos mientras viaja por el tablero. A cada jugador se le dan 1500 divididos de la siguiente manera:<br>
-        -2 x 500, 2 x 100, 2 x 50, 6 x 20, 5 x 10, 5 x 5, y 5 x 1<br>
-        <br>
-        <h3>BANCO</h3><br>
-        Seleccionar a alguien como banquero. Si esta persona también juega, entonces debe mantener sus fondos personales separados de los del banco. El Banco tiene que hacer una serie de trabajos:<br>
-        -El Banco paga sueldos y bonus.<br>
-        -El Banco cobra todos los impuestos, multas, préstamos e intereses y el precio de todas las propiedades que vende y subasta.<br>
-        <br>
-        El Banco no puede quebrar, si el Banco se queda sin dinero, el Banquero puede emitir tanto como sea necesario escribiendo en cualquier papel ordinario.<br>
-        <br>
-        <h2>REGLAS DEL MONOPOLY</h2><br>
-        Comenzando con la Banca, cada jugador lanza los dados. El jugador con el total más alto comienza el juego. Luego cada jugador coloca su ficha en la esquina marcada «Casilla de Salida», lanza los dados y mueve el número de espacios indicados por los dados. Las fichas permanecen en los espacios ocupados y proceden desde ese punto en el siguiente turno del jugador. Dos o más fichas pueden estar en el mismo espacio al mismo tiempo. Si uno o ambos dados tiran del tablero, o caen o se apoyan en un mazo de cartas, la tirada es inválida. Lánzalas de nuevo.<br>
-        Dependiendo del espacio al que llegue la ficha, usted puede comprar la propiedad, o estar obligado a pagar el alquiler, pagar impuestos, dibujar una tarjeta de Chance o Community Chest, Ir a la Cárcel, o etc….<br>
-        Si lanzas dobles, mueves tu ficha y estás sujeto a cualquier privilegio o penalización relacionada con el espacio en el que aterrices. Luego puedes lanzar de nuevo y mover tu ficha como antes. Pero cuidado, si alguna vez lanzas dobles tres veces seguidas, tienes que ir inmediatamente a la cárcel.<br>
-        <br>
-        <h3>CASILLA DE SALIDA</h3><br>
-        Cada vez que la ficha de un jugador aterriza o pasa por encima de la salida, ya sea tirando los dados o robando una carta, el banquero le paga a ese jugador un salario de 200. Sin embargo, 200 se pagan sólo una vez cada vez alrededor del tablero. Si un jugador, pasando la salida en el lanzamiento de los dados y aterriza 2 espacios más allá de él en el «Cofre de la Comunidad». Coge la carta «ve a la salida» y obtén 200 por pasar por allí la primera vez y otros 200 por alcanzarlo la segunda vez siguiendo las instrucciones de la carta.<br>
-        <br>
-        <h3>COMPRA DE PROPIEDADES</h3><br>
-        Cuando aterrizas en una propiedad que no es tuya, puedes comprar esa propiedad del Banco a su precio impreso. Recibe la tarjeta de Título de Propiedad que muestra la propiedad. Si no deseas comprar la propiedad, el Banco la vende en una subasta al mejor postor. El comprador paga al Banco el monto de la oferta en efectivo y recibe la tarjeta de Título de Propiedad de esa propiedad. Cualquier jugador, incluyendo el que rechazó la opción de comprarla al precio impreso, puede pujar y las pujas pueden comenzar a cualquier precio.<br>
-        <br>
-        <h3>PAGAR EL ALQUILER</h3><br>
-        Cuando aterrizas en una propiedad que es de otro jugador, el propietario le cobra el alquiler de acuerdo con la lista impresa en su tarjeta. Si la propiedad está hipotecada, su tarjeta de título de propiedad se coloca boca abajo delante del propietario y éste no puede cobrar el alquiler.<br>
-        Es una ventaja tener todas las tarjetas de Título de Propiedad en un grupo de color porque el propietario puede entonces cobrar el doble de alquiler por propiedades no mejoradas en ese grupo de color. Esta regla se aplica a las propiedades no hipotecadas incluso si otra propiedad en ese grupo de color está hipotecada. Es más ventajoso tener casas u hoteles en las propiedades porque entonces los alquileres son mucho más altos.<br>
-        Nota: El propietario no puede cobrar el alquiler si no pide el alquiler antes de que el siguiente jugador tire sus dados.<br>
-        <br>
-        <h3>OPORTUNIDAD Y COFRE DE LA COMUNIDAD</h3><br>
-        Cuando aterrices en cualquiera de estos espacios, coge la carta de arriba del mazo indicado y sigue las instrucciones de la carta. Vuelve a colocar la carta boca abajo en la parte inferior de la baraja. La carta «quedas libre de la cárcel» se mantiene hasta que se usa y luego se devuelve al fondo de la baraja. Si el jugador que lo roba no desea usarlo, puede venderlo a otro jugador a un precio aceptable para ambos.<br>
-        <br>
-        <h3>IMPUESTOS</h3><br>
-        Al llegar a «Impuestos» simplemente paga lo que se indica. <br>
-        <br>
-        <h3>CÁRCEL</h3><br>
-        Aterrizas en la cárcel cuando:<br>
-        -Cuando eres enviado a la Cárcel, debes «mudarte» directamente allí y no puedes cobrar un salario de 200 si necesitas pasar a la salida. También tu turno termina cuando eres enviado a la cárcel.<br>
-        -Si no eres enviado a la cárcel pero en el curso ordinario del juego aterrizas en ese espacio, estás «Sólo Visitando» y avanzas de la manera habitual en tu siguiente turno. Aunque estés en la cárcel, puedes comprar y vender propiedades, casas y hoteles y cobrar alquileres.<br>
-        Un jugador sale de la cárcel:<br>
-        -Pagando 50<br>
-        -Esperando 3 turnos<br>
-        -Utilizando la carta salir gratis de la cárcel<br>
-        <br>
-        <h3>APARCAMIENTO GRATUITO</h3><br>
-        Esto es sólo un lugar de descanso «gratuito», por lo que el jugador que aterriza en él no recibe dinero, propiedad, recompensa o penalización de ningún tipo. Trata de evitar venir aquí al principio del juego, aunque más tarde puede ser un gran objetivo.<br>
-        <br>
-        <h3>CASAS Y HOTELES</h3><br>
-        Cuando un jugador posee todas las propiedades de un grupo de color, puede comprar casas del Banco. Puedes comprar tantas casas como tu intuición y situación financiera lo permita, pero no puedes construir más de una casa en cualquier propiedad de cualquier grupo de color hasta que haya construido una casa en cada una de las propiedades de ese grupo. El precio que debes pagar al Banco por cada casa se muestra en su tarjeta de título de propiedad para la propiedad en la que usted erige la casa. El propietario todavía cobra el doble de la renta de un oponente que aterriza en las propiedades no mejoradas de su grupo de color completo. Cuando un jugador tiene cuatro casas en cada propiedad de un grupo de color completo, puede comprar un hotel del Banco y construirlo en cualquier propiedad del grupo de color. Sólo se puede construir un hotel en una misma propiedad.<br>
-        <br>
-        <h3>ESCASEZ DE EDIFICIOS</h3><br>
-        Cuando el Banco no tiene casas para vender, los jugadores que deseen construir deben esperar a que algún jugador regrese o venda sus casas al Banco antes de construir. Si hay un número limitado de casas y hoteles disponibles y dos o más jugadores desean comprar más de lo que el Banco tiene, las casas y hoteles se venderán en subasta al mejor postor.<br>
-        <br>
-        <h3>VENTA DE PROPIEDADES</h3><br>
-        Propiedades no mejoradas, ferrocarriles y servicios públicos pueden ser vendidos a cualquier jugador como una transacción privada por cualquier cantidad que el propietario pueda obtener. Sin embargo, las propiedades no pueden ser vendidas a otro jugador si los edificios se encuentran sobre cualquier propiedad de ese grupo de color. Los edificios deben ser vendidos al Banco antes de que el propietario pueda vender cualquier propiedad de ese grupo de color. Las casas y los hoteles pueden ser vendidos al banco en cualquier momento por la mitad del precio pagado por ellos.<br>
-        <br>
-        <h3>HIPOTECAS</h3><br>
-        Las propiedades no mejoradas pueden ser hipotecadas a través del Banco en cualquier momento. El valor de la hipoteca está impreso en cada tarjeta de Título de Propiedad. Cuando las propiedades tienen edificios, entonces estos deben ser vendidos de nuevo a la espalda a mitad de precio primero.<br>
-        No se puede cobrar el alquiler de propiedades o servicios públicos hipotecados.<br>
-        Para cancelar la hipoteca, el propietario debe pagar al Banco el importe de la hipoteca más un 10% de interés. Cuando todas las propiedades de un grupo de color ya no están hipotecadas, el propietario puede comenzar a comprar casas u hoteles.<br>
-        El jugador que hipoteca la propiedad retiene la posesión de la misma y ningún otro jugador puede asegurarla levantando la hipoteca del Banco. Pero el propietario puede vender esta propiedad hipotecada a otro jugador a cualquier precio acordado y el nuevo propietario puede cancelar la hipoteca pagando la hipoteca más un 10% de interés al Banco. Cuando la hipoteca no se levanta a la vez, usted debe pagar al Banco el 10% de interés cuando compre la propiedad y si levanta la hipoteca más tarde, debe pagar al Banco un 10% de interés adicional.<br>
-        <br>
-        <h3>BANCARROTA</h3><br>
-        Te declaras en bancarrota si debes más de lo que puedes pagar a otro jugador o al Banco.<br>
-        Si tu deuda es con otro jugador, debes entregar todo lo que tiene a ese jugador. Si eres dueño de casas u hoteles, debes devolverlos al Banco a cambio de dinero hasta la mitad de la cantidad pagada por ellos y este dinero se le entrega al acreedor. Si tienes una propiedad hipotecada, también tienes que entregar esta propiedad a su acreedor, pero el nuevo propietario debe pagar inmediatamente al Banco el monto de los intereses del préstamo, que es el 10% del valor de la propiedad. Si le debes al Banco, en lugar de a otro jugador, más de lo que puedes pagar, debes entregar todos los activos al Banco. En este caso, el Banco vende inmediatamente por subasta todos los bienes inmuebles, excepto los edificios.<br>
-        El dinero puede ser prestado a un jugador sólo por el Banco (hipotecando la propiedad) y ningún otro jugador puede pedir prestado o prestar dinero a otro jugador.<br>
-        <br>
-        <h3>FIN DEL JUEGO</h3><br>
-        ¡Los jugadores en bancarrota deben retirarse del juego y el último jugador que quede en el juego es el ganador!
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Reglas
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <h2>INSTRUCCIONES DEL MONOPOLY</h2><br>
+                Colocar el tablero sobre una mesa. Las cartas del Cofre del Azar y del Cofre de la Comunidad boca abajo en sus espacios asignados en el tablero. Cada jugador elige una ficha para representarlos mientras viaja por el tablero. A cada jugador se le dan 1500 divididos de la siguiente manera:<br>
+                -2 x 500, 2 x 100, 2 x 50, 6 x 20, 5 x 10, 5 x 5, y 5 x 1<br>
+                <br>
+                <h3>BANCO</h3><br>
+                Seleccionar a alguien como banquero. Si esta persona también juega, entonces debe mantener sus fondos personales separados de los del banco. El Banco tiene que hacer una serie de trabajos:<br>
+                -El Banco paga sueldos y bonus.<br>
+                -El Banco cobra todos los impuestos, multas, préstamos e intereses y el precio de todas las propiedades que vende y subasta.<br>
+                <br>
+                El Banco no puede quebrar, si el Banco se queda sin dinero, el Banquero puede emitir tanto como sea necesario escribiendo en cualquier papel ordinario.<br>
+                <br>
+                <h2>REGLAS DEL MONOPOLY</h2><br>
+                Comenzando con la Banca, cada jugador lanza los dados. El jugador con el total más alto comienza el juego. Luego cada jugador coloca su ficha en la esquina marcada «Casilla de Salida», lanza los dados y mueve el número de espacios indicados por los dados. Las fichas permanecen en los espacios ocupados y proceden desde ese punto en el siguiente turno del jugador. Dos o más fichas pueden estar en el mismo espacio al mismo tiempo. Si uno o ambos dados tiran del tablero, o caen o se apoyan en un mazo de cartas, la tirada es inválida. Lánzalas de nuevo.<br>
+                Dependiendo del espacio al que llegue la ficha, usted puede comprar la propiedad, o estar obligado a pagar el alquiler, pagar impuestos, dibujar una tarjeta de Chance o Community Chest, Ir a la Cárcel, o etc….<br>
+                Si lanzas dobles, mueves tu ficha y estás sujeto a cualquier privilegio o penalización relacionada con el espacio en el que aterrices. Luego puedes lanzar de nuevo y mover tu ficha como antes. Pero cuidado, si alguna vez lanzas dobles tres veces seguidas, tienes que ir inmediatamente a la cárcel.<br>
+                <br>
+                <h3>CASILLA DE SALIDA</h3><br>
+                Cada vez que la ficha de un jugador aterriza o pasa por encima de la salida, ya sea tirando los dados o robando una carta, el banquero le paga a ese jugador un salario de 200. Sin embargo, 200 se pagan sólo una vez cada vez alrededor del tablero. Si un jugador, pasando la salida en el lanzamiento de los dados y aterriza 2 espacios más allá de él en el «Cofre de la Comunidad». Coge la carta «ve a la salida» y obtén 200 por pasar por allí la primera vez y otros 200 por alcanzarlo la segunda vez siguiendo las instrucciones de la carta.<br>
+                <br>
+                <h3>COMPRA DE PROPIEDADES</h3><br>
+                Cuando aterrizas en una propiedad que no es tuya, puedes comprar esa propiedad del Banco a su precio impreso. Recibe la tarjeta de Título de Propiedad que muestra la propiedad. Si no deseas comprar la propiedad, el Banco la vende en una subasta al mejor postor. El comprador paga al Banco el monto de la oferta en efectivo y recibe la tarjeta de Título de Propiedad de esa propiedad. Cualquier jugador, incluyendo el que rechazó la opción de comprarla al precio impreso, puede pujar y las pujas pueden comenzar a cualquier precio.<br>
+                <br>
+                <h3>PAGAR EL ALQUILER</h3><br>
+                Cuando aterrizas en una propiedad que es de otro jugador, el propietario le cobra el alquiler de acuerdo con la lista impresa en su tarjeta. Si la propiedad está hipotecada, su tarjeta de título de propiedad se coloca boca abajo delante del propietario y éste no puede cobrar el alquiler.<br>
+                Es una ventaja tener todas las tarjetas de Título de Propiedad en un grupo de color porque el propietario puede entonces cobrar el doble de alquiler por propiedades no mejoradas en ese grupo de color. Esta regla se aplica a las propiedades no hipotecadas incluso si otra propiedad en ese grupo de color está hipotecada. Es más ventajoso tener casas u hoteles en las propiedades porque entonces los alquileres son mucho más altos.<br>
+                Nota: El propietario no puede cobrar el alquiler si no pide el alquiler antes de que el siguiente jugador tire sus dados.<br>
+                <br>
+                <h3>OPORTUNIDAD Y COFRE DE LA COMUNIDAD</h3><br>
+                Cuando aterrices en cualquiera de estos espacios, coge la carta de arriba del mazo indicado y sigue las instrucciones de la carta. Vuelve a colocar la carta boca abajo en la parte inferior de la baraja. La carta «quedas libre de la cárcel» se mantiene hasta que se usa y luego se devuelve al fondo de la baraja. Si el jugador que lo roba no desea usarlo, puede venderlo a otro jugador a un precio aceptable para ambos.<br>
+                <br>
+                <h3>IMPUESTOS</h3><br>
+                Al llegar a «Impuestos» simplemente paga lo que se indica. <br>
+                <br>
+                <h3>CÁRCEL</h3><br>
+                Aterrizas en la cárcel cuando:<br>
+                -Cuando eres enviado a la Cárcel, debes «mudarte» directamente allí y no puedes cobrar un salario de 200 si necesitas pasar a la salida. También tu turno termina cuando eres enviado a la cárcel.<br>
+                -Si no eres enviado a la cárcel pero en el curso ordinario del juego aterrizas en ese espacio, estás «Sólo Visitando» y avanzas de la manera habitual en tu siguiente turno. Aunque estés en la cárcel, puedes comprar y vender propiedades, casas y hoteles y cobrar alquileres.<br>
+                Un jugador sale de la cárcel:<br>
+                -Pagando 50<br>
+                -Esperando 3 turnos<br>
+                -Utilizando la carta salir gratis de la cárcel<br>
+                <br>
+                <h3>APARCAMIENTO GRATUITO</h3><br>
+                Esto es sólo un lugar de descanso «gratuito», por lo que el jugador que aterriza en él no recibe dinero, propiedad, recompensa o penalización de ningún tipo. Trata de evitar venir aquí al principio del juego, aunque más tarde puede ser un gran objetivo.<br>
+                <br>
+                <h3>CASAS Y HOTELES</h3><br>
+                Cuando un jugador posee todas las propiedades de un grupo de color, puede comprar casas del Banco. Puedes comprar tantas casas como tu intuición y situación financiera lo permita, pero no puedes construir más de una casa en cualquier propiedad de cualquier grupo de color hasta que haya construido una casa en cada una de las propiedades de ese grupo. El precio que debes pagar al Banco por cada casa se muestra en su tarjeta de título de propiedad para la propiedad en la que usted erige la casa. El propietario todavía cobra el doble de la renta de un oponente que aterriza en las propiedades no mejoradas de su grupo de color completo. Cuando un jugador tiene cuatro casas en cada propiedad de un grupo de color completo, puede comprar un hotel del Banco y construirlo en cualquier propiedad del grupo de color. Sólo se puede construir un hotel en una misma propiedad.<br>
+                <br>
+                <h3>ESCASEZ DE EDIFICIOS</h3><br>
+                Cuando el Banco no tiene casas para vender, los jugadores que deseen construir deben esperar a que algún jugador regrese o venda sus casas al Banco antes de construir. Si hay un número limitado de casas y hoteles disponibles y dos o más jugadores desean comprar más de lo que el Banco tiene, las casas y hoteles se venderán en subasta al mejor postor.<br>
+                <br>
+                <h3>VENTA DE PROPIEDADES</h3><br>
+                Propiedades no mejoradas, ferrocarriles y servicios públicos pueden ser vendidos a cualquier jugador como una transacción privada por cualquier cantidad que el propietario pueda obtener. Sin embargo, las propiedades no pueden ser vendidas a otro jugador si los edificios se encuentran sobre cualquier propiedad de ese grupo de color. Los edificios deben ser vendidos al Banco antes de que el propietario pueda vender cualquier propiedad de ese grupo de color. Las casas y los hoteles pueden ser vendidos al banco en cualquier momento por la mitad del precio pagado por ellos.<br>
+                <br>
+                <h3>HIPOTECAS</h3><br>
+                Las propiedades no mejoradas pueden ser hipotecadas a través del Banco en cualquier momento. El valor de la hipoteca está impreso en cada tarjeta de Título de Propiedad. Cuando las propiedades tienen edificios, entonces estos deben ser vendidos de nuevo a la espalda a mitad de precio primero.<br>
+                No se puede cobrar el alquiler de propiedades o servicios públicos hipotecados.<br>
+                Para cancelar la hipoteca, el propietario debe pagar al Banco el importe de la hipoteca más un 10% de interés. Cuando todas las propiedades de un grupo de color ya no están hipotecadas, el propietario puede comenzar a comprar casas u hoteles.<br>
+                El jugador que hipoteca la propiedad retiene la posesión de la misma y ningún otro jugador puede asegurarla levantando la hipoteca del Banco. Pero el propietario puede vender esta propiedad hipotecada a otro jugador a cualquier precio acordado y el nuevo propietario puede cancelar la hipoteca pagando la hipoteca más un 10% de interés al Banco. Cuando la hipoteca no se levanta a la vez, usted debe pagar al Banco el 10% de interés cuando compre la propiedad y si levanta la hipoteca más tarde, debe pagar al Banco un 10% de interés adicional.<br>
+                <br>
+                <h3>BANCARROTA</h3><br>
+                Te declaras en bancarrota si debes más de lo que puedes pagar a otro jugador o al Banco.<br>
+                Si tu deuda es con otro jugador, debes entregar todo lo que tiene a ese jugador. Si eres dueño de casas u hoteles, debes devolverlos al Banco a cambio de dinero hasta la mitad de la cantidad pagada por ellos y este dinero se le entrega al acreedor. Si tienes una propiedad hipotecada, también tienes que entregar esta propiedad a su acreedor, pero el nuevo propietario debe pagar inmediatamente al Banco el monto de los intereses del préstamo, que es el 10% del valor de la propiedad. Si le debes al Banco, en lugar de a otro jugador, más de lo que puedes pagar, debes entregar todos los activos al Banco. En este caso, el Banco vende inmediatamente por subasta todos los bienes inmuebles, excepto los edificios.<br>
+                El dinero puede ser prestado a un jugador sólo por el Banco (hipotecando la propiedad) y ningún otro jugador puede pedir prestado o prestar dinero a otro jugador.<br>
+                <br>
+                <h3>FIN DEL JUEGO</h3><br>
+                ¡Los jugadores en bancarrota deben retirarse del juego y el último jugador que quede en el juego es el ganador!
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Modificaciones
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

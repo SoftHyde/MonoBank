@@ -45,27 +45,27 @@ export class GestorJugadorComponent implements OnInit {
   }
 
   cobrarTodos():void{
-    for(var i=0; i<this.jugadoresService.players.length;i++ ){
+    for(var i=0; i<this.jugadoresService.obtenerJugadores().length;i++ ){
         if(i != this.obtenerIndiceJugadorSeleccionado())
-        this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto-this.monto;
+        this.jugadoresService.obtenerJugadores()[i].monto=this.jugadoresService.obtenerJugadores()[i].monto-this.monto;
     }
-    this.jugadoresService.obtenerJugadorSeleccionado().monto+=this.monto*(this.jugadoresService.players.length-1);
+    this.jugadoresService.obtenerJugadorSeleccionado().monto+=this.monto*(this.jugadoresService.obtenerJugadores().length-1);
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " a todos los jugadores\n\n");
     this.monto=null;
   }
 
   pagarTodos():void{
-    this.jugadoresService.obtenerJugadorSeleccionado().monto-=this.monto*(this.jugadoresService.players.length-1);
-    for(var i=0; i<this.jugadoresService.players.length;i++ ){
+    this.jugadoresService.obtenerJugadorSeleccionado().monto-=this.monto*(this.jugadoresService.obtenerJugadores().length-1);
+    for(var i=0; i<this.jugadoresService.obtenerJugadores().length;i++ ){
       if(i != this.obtenerIndiceJugadorSeleccionado())
-      this.jugadoresService.players[i].monto=this.jugadoresService.players[i].monto+this.monto;
+      this.jugadoresService.obtenerJugadores()[i].monto=this.jugadoresService.obtenerJugadores()[i].monto+this.monto;
     }
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " a todos los jugadores\n\n");
     this.monto=null;
   }
 
   pagarJugador(jugador: Jugador):void{
-    this.jugadoresService.players.forEach(jug => {
+    this.jugadoresService.obtenerJugadores().forEach(jug => {
       if (jug.id==jugador.id) {
         jug.monto += this.monto;}
     });

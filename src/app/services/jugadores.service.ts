@@ -11,10 +11,9 @@ export class JugadoresService {
   playerSeleccionado:number = 0 //es el indice del jugador
   players:Array<Jugador> = new Array<Jugador>();
   historial: string = 'Bienvenido a Monopoly!. Que comience la partida';
+  partidaTerminada: boolean = false;
 
   constructor() {
-    // this.players.push(new Jugador(0,"jugador 1",0,false));
-    // this.players.push(new Jugador(1,"jugador 2",0,false))
   }
   newGame(){
     this.contador = 1;
@@ -23,6 +22,10 @@ export class JugadoresService {
     this.players.push(new Jugador(1,"jugador 2",0,false));
     this.playerSeleccionado = 0;
     this.historial = 'Bienvenido a Monopoly!. Que comience la partida';
+  }
+
+  obtenerJugadores():Array<Jugador>{
+    return this.players.filter(jug => jug.estaBancarrota==false);
   }
 
   actualizarHistorial(text: string){
@@ -49,21 +52,21 @@ export class JugadoresService {
   }
 
   actualizarJugadorSeleccionado(jug: Jugador): void{
-    this.playerSeleccionado=this.players.indexOf(jug);
-    // this.playerSeleccionado=indice;
+    this.playerSeleccionado=this.obtenerJugadores().indexOf(jug);
   }
 
   obtenerJugadorSeleccionado(): Jugador{
-    return this.players[this.playerSeleccionado];
+    return this.obtenerJugadores()[this.playerSeleccionado];
   }
 
   jugBancarrota(indiceJug: number){
-    this.players[indiceJug].estaBancarrota=true;
+    this.obtenerJugadores()[indiceJug].estaBancarrota=true;
+    if (this.obtenerJugadores().length==1) this.partidaTerminada=true;
   }
 
   obtenerJugadoresRestantes(): Array<Jugador>{
-    var restantes:Array<Jugador> = this.players;
-    restantes = restantes.filter(jug => jug.id!=this.players[this.playerSeleccionado].id && jug.estaBancarrota==false);
+    var restantes:Array<Jugador> = this.obtenerJugadores();
+    restantes = restantes.filter(jug => jug.id!=this.obtenerJugadores()[this.playerSeleccionado].id && jug.estaBancarrota==false);
     return restantes;
   }
 }

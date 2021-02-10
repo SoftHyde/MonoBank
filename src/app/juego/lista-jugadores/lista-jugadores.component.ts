@@ -15,11 +15,17 @@ export class ListaJugadoresComponent implements OnInit {
   }
 
   obtenerJugadores(): Array<Jugador>{
-    return this.jugadoresService.players.filter(jug => jug.estaBancarrota==false);
+    //return this.jugadoresService.players.filter(jug => jug.estaBancarrota==false);
+    return this.jugadoresService.obtenerJugadores();
   }
 
-  jugadorSeleccionado(indice :Jugador): void {
+  jugadorSeleccionado(indice :Jugador): boolean {
     this.jugadoresService.actualizarJugadorSeleccionado(indice);
+    return true;
   }
 
+  esSeleccionado(indice: number): boolean{
+    if (indice==this.jugadoresService.playerSeleccionado) return true;
+    else return false;
+  }
 }

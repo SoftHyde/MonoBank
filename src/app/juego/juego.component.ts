@@ -21,4 +21,8 @@ export class JuegoComponent implements OnInit {
   obtenerJugadores(): Array<Jugador>{
     return this.jugadoresService.players;
   }
+
+  func(abc: boolean){
+    console.log(abc)
+  }
 }
