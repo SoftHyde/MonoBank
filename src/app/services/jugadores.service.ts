@@ -18,10 +18,11 @@ export class JugadoresService {
   newGame(){
     this.contador = 1;
     this.players.splice(0,this.players.length);
-    this.players.push(new Jugador(0,"jugador 1",0,false));
-    this.players.push(new Jugador(1,"jugador 2",0,false));
+    this.players.push(new Jugador(0,"Jugador 1",0,false));
+    this.players.push(new Jugador(1,"Jugador 2",0,false));
     this.playerSeleccionado = 0;
     this.historial = 'Bienvenido a Monopoly!. Que comience la partida';
+    this.partidaTerminada = false;
   }
 
   obtenerJugadores():Array<Jugador>{
@@ -34,7 +35,7 @@ export class JugadoresService {
   }
 
   agregarJugador(newJugador: Jugador){
-    if (this.players.length<6){
+    if (this.players.length<8){
       this.players.push(newJugador);
     }
   }
@@ -61,7 +62,9 @@ export class JugadoresService {
 
   jugBancarrota(indiceJug: number){
     this.obtenerJugadores()[indiceJug].estaBancarrota=true;
-    if (this.obtenerJugadores().length==1) this.partidaTerminada=true;
+    if (this.obtenerJugadores().length==1) {
+      this.partidaTerminada=true;
+    }
   }
 
   obtenerJugadoresRestantes(): Array<Jugador>{

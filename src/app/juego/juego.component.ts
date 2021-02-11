@@ -10,7 +10,7 @@ import { JugadoresService } from '../services/jugadores.service';
 })
 export class JuegoComponent implements OnInit {
 
-  constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
+  constructor(public jugadoresService: JugadoresService , private ruta: Router) { }
 
   ngOnInit(): void {
     if (this.jugadoresService.jugadoresListos==false){
@@ -22,7 +22,15 @@ export class JuegoComponent implements OnInit {
     return this.jugadoresService.players;
   }
 
-  func(abc: boolean){
-    console.log(abc)
+  finalizarPartida(): boolean{
+    return this.jugadoresService.partidaTerminada;
   }
+
+  volverInicio(){
+    this.ruta.navigate(['']);
+  }
+
+  // func(abc: boolean){
+  //   console.log(abc)
+  // }
 }

@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-6" style="display: flex; align-items: center;">
     <div class="col-md-12">
-      <input class="form-control" style="border-color: green; text-align: center;" type="number" placeholder="{{0| currency}}" [(ngModel)]='monto' min="0"> <br>
+      <input class="form-control" style="border-color: green; text-align: center;" type="number" placeholder="{{0| currency}}" [(ngModel)]='monto' min="1"> <br>
       <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
         <button class="btn btn-outline-primary col-md-5" data-toggle="modal" data-target="#modalCobrar" [disabled]="verificarMonto()">Cobrar</button>
         <button class="btn btn-outline-danger col-md-5" data-toggle="modal" data-target="#modalPagar" [disabled]="verificarMonto()">Pagar</button>

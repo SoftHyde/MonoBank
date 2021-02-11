@@ -1,12 +1,19 @@
 <div class="col-md-12" style="display:flex; justify-content: space-evenly; text-align: center; max-height: 60vh;">
-  <div class="col-md-8">
-    <div>
-      <app-gestor-jugador> </app-gestor-jugador><br>
-      <app-jugador> <!-- dentro del tag pongo esto para que tome la salida del hijo -> (salida)="func($event)" --> </app-jugador>
-      <app-lista-jugadores> </app-lista-jugadores>
+  <div class="col-md-4" *ngIf="this.finalizarPartida(); else elseBlock" >
+    <p>Felicidades {{this.jugadoresService.obtenerJugadorSeleccionado().nombre}}, lograste regular el mercado a gusto, enseñale al resto de tus compañeros antes de apretar el siguiente boton y terminar la partida! </p>
+    <img src="https://i.pinimg.com/originals/50/0f/cc/500fccb1a4f18be709b1a70e5fdd7a56.gif" style="height: 55%; width: 100%;"><br>
+    <br><button class="btn btn-outline-primary col-md-12" (click)="volverInicio()">Finalizar Partida</button>
+  </div>
+  <ng-template #elseBlock>
+    <div class="col-md-8" style="display: flex; align-items: center;">
+      <div class="col-md-12">
+        <app-gestor-jugador> </app-gestor-jugador><br>
+        <app-jugador> <!-- dentro del tag pongo esto para que tome la salida del hijo -> (salida)="func($event)" --> </app-jugador>
+        <app-lista-jugadores> </app-lista-jugadores>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <app-historial></app-historial>
-  </div>
+    <div class="col-md-4">
+      <app-historial></app-historial>
+    </div>
+  </ng-template>
 </div>

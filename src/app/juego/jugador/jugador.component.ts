@@ -24,8 +24,8 @@ export class JugadorComponent implements OnInit {
   }
 
   declararBancarrota(){
-    this.jugadoresService.jugBancarrota(this.jugadoresService.playerSeleccionado);
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " se ha declarado en bancarrota\n\n");
+    this.jugadoresService.jugBancarrota(this.jugadoresService.playerSeleccionado);
     this.jugadoresService.actualizarJugadorSeleccionado(this.jugadoresService.obtenerJugadores()[0])
     //this.salida.emit(true) //cuando se ejecute el declarar bancarrota, se le enviara al padre un true
   }

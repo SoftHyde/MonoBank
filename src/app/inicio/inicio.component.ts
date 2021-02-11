@@ -22,7 +22,7 @@ export class InicioComponent implements OnInit {
   }
 
   agregarJugador(): void{
-    var player: Jugador = new Jugador(this.jugadoresService.players.length, "jugador "+(this.jugadoresService.players.length+1),0,false);
+    var player: Jugador = new Jugador(this.jugadoresService.players.length, "Jugador "+(this.jugadoresService.players.length+1),0,false);
     this.jugadoresService.agregarJugador(player);
   }
 
