@@ -7,13 +7,13 @@
   <ng-template #elseBlock>
     <div class="col-md-8" style="display: flex; align-items: center;">
       <div class="col-md-12">
-        <app-gestor-jugador> </app-gestor-jugador><br>
-        <app-jugador> <!-- dentro del tag pongo esto para que tome la salida del hijo -> (salida)="func($event)" --> </app-jugador>
+        <app-gestor-jugador (salidaCamb)="cambioEstado($event)"> </app-gestor-jugador><br>
+        <app-jugador (salidaCamb)="cambioEstado($event)"> </app-jugador>
         <app-lista-jugadores> </app-lista-jugadores>
       </div>
     </div>
     <div class="col-md-4">
-      <app-historial></app-historial>
+      <app-historial (salidaRevert)="revertirCambio($event)" [entrada]="this.estadoPartida.length"></app-historial>
     </div>
   </ng-template>
 </div>

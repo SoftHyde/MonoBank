@@ -1,5 +1,5 @@
 import { JugadoresService } from 'src/app/services/jugadores.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Jugador } from 'src/app/model/jugador';
 
 @Component({
@@ -8,6 +8,8 @@ import { Jugador } from 'src/app/model/jugador';
   styleUrls: ['./gestor-jugador.component.css']
 })
 export class GestorJugadorComponent implements OnInit {
+
+  @Output() salidaCamb: EventEmitter<boolean> = new EventEmitter<boolean>()
   monto:number;
   constructor(private jugadoresService:JugadoresService) { }
 
@@ -22,7 +24,7 @@ export class GestorJugadorComponent implements OnInit {
     return this.jugadoresService.obtenerJugadorSeleccionado();
   }
 
-  obtenerJugadoresRestantes(jugadorSeleccionado: number): Array<Jugador>{
+  obtenerJugadoresRestantes(): Array<Jugador>{
     return this.jugadoresService.obtenerJugadoresRestantes();
   }
 
@@ -30,11 +32,13 @@ export class GestorJugadorComponent implements OnInit {
     this.jugadoresService.obtenerJugadorSeleccionado().monto=this.jugadoresService.obtenerJugadorSeleccionado().monto+this.monto;
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " del Banco\n\n");
     this.monto=null;
+    this.salidaCamb.emit(true);
   }
   pagarBanco():void{
     this.jugadoresService.obtenerJugadorSeleccionado().monto=this.jugadoresService.obtenerJugadorSeleccionado().monto-this.monto;
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " al Banco\n\n");
     this.monto=null;
+    this.salidaCamb.emit(true);
   }
 
   verificarMonto(): boolean{
@@ -52,6 +56,7 @@ export class GestorJugadorComponent implements OnInit {
     this.jugadoresService.obtenerJugadorSeleccionado().monto+=this.monto*(this.jugadoresService.obtenerJugadores().length-1);
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " cobro $" + this.monto + " a todos los jugadores\n\n");
     this.monto=null;
+    this.salidaCamb.emit(true);
   }
 
   pagarTodos():void{
@@ -62,6 +67,7 @@ export class GestorJugadorComponent implements OnInit {
     }
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " a todos los jugadores\n\n");
     this.monto=null;
+    this.salidaCamb.emit(true);
   }
 
   pagarJugador(jugador: Jugador):void{
@@ -72,6 +78,7 @@ export class GestorJugadorComponent implements OnInit {
     this.jugadoresService.obtenerJugadorSeleccionado().monto-=this.monto;
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " pago $" + this.monto + " al jugador " + jugador.nombre + "\n\n")
     this.monto=null;
+    this.salidaCamb.emit(true);
   }
 
 }

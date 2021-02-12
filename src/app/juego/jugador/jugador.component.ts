@@ -9,7 +9,7 @@ import { JugadoresService } from 'src/app/services/jugadores.service';
 })
 export class JugadorComponent implements OnInit {
 
-  //@Output() salida: EventEmitter<boolean> = new EventEmitter<boolean>() //declarando esto, le envio un evento al padre
+  @Output() salidaCamb: EventEmitter<boolean> = new EventEmitter<boolean>()
   constructor(private jugadoresService: JugadoresService) { }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class JugadorComponent implements OnInit {
   declararBancarrota(){
     this.jugadoresService.actualizarHistorial("El jugador " + this.jugadoresService.obtenerJugadorSeleccionado().nombre + " se ha declarado en bancarrota\n\n");
     this.jugadoresService.jugBancarrota(this.jugadoresService.playerSeleccionado);
+    this.salidaCamb.emit(true);
     this.jugadoresService.actualizarJugadorSeleccionado(this.jugadoresService.obtenerJugadores()[0])
-    //this.salida.emit(true) //cuando se ejecute el declarar bancarrota, se le enviara al padre un true
   }
 }

@@ -1,10 +1,11 @@
 .banner{
     background-color: green;text-align: center;font-size:larger;font-weight:bolder;
-    background-image: url(src\app\resourses\6449267bcd909a6ad82b43736f75ce97.png);
+    background-image: url(src\app\resourses\logo.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: auto;
     background-position: center;
+    padding-bottom: 5vh;
 }
 
 .btn-flotante {

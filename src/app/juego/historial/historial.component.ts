@@ -1,5 +1,5 @@
 import { JugadoresService } from 'src/app/services/jugadores.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-historial',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialComponent implements OnInit {
 
+  @Output() salidaRevert: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Input() entrada: number;
   seg: number = 0;
   min: number = 0;
   hor: number = 0;
@@ -36,8 +38,12 @@ export class HistorialComponent implements OnInit {
     return this.juadoresService.historial;
   }
 
-  pataPuto(){
+  pataPuto():void{
     this.juadoresService.actualizarHistorial("Pata Puto \n\n")
+  }
+
+  deshacer():void{
+    this.salidaRevert.emit(true);
   }
 
 }

@@ -53,7 +53,7 @@
         </div><br>
         <p style="text-align: center;">Jugadores:</p>
         <div class="col-md-12" style="display: flex; justify-content: space-evenly;">
-          <div class="col" *ngFor="let item of this.obtenerJugadoresRestantes(this.obtenerIndiceJugadorSeleccionado()); let indice=index">
+          <div class="col" *ngFor="let item of this.obtenerJugadoresRestantes(); let indice=index">
             <button class="btn btn-outline-primary col-md-12" (click)="pagarJugador(item)" data-dismiss="modal">{{item.nombre}}</button>
           </div>
         </div><br>

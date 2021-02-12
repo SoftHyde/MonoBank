@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Estado } from '../model/Estado';
 import { Jugador } from '../model/jugador';
 import { JugadoresService } from '../services/jugadores.service';
 
@@ -10,16 +11,38 @@ import { JugadoresService } from '../services/jugadores.service';
 })
 export class JuegoComponent implements OnInit {
 
+  estadoPartida: Array<Estado> = new Array<Estado>();
   constructor(public jugadoresService: JugadoresService , private ruta: Router) { }
 
   ngOnInit(): void {
     if (this.jugadoresService.jugadoresListos==false){
       this.ruta.navigate(['']);
     }
+    else this.cambioEstado(true)
   }
 
-  obtenerJugadores(): Array<Jugador>{
-    return this.jugadoresService.players;
+  cambioEstado(cambiar: boolean){
+    if (cambiar){
+      var auxJug = new Array<Jugador>();
+      this.jugadoresService.players.forEach(player => {
+        var jugAux = new Jugador(player.id,player.nombre,player.monto,player.estaBancarrota);
+        auxJug.push(jugAux);
+      });
+      var estadoActual: Estado = new Estado(auxJug, this.jugadoresService.partidaTerminada, this.jugadoresService.contador,this.jugadoresService.historial);
+      this.estadoPartida.push(estadoActual);
+    }
+  }
+
+  revertirCambio(revertir: boolean){
+    if (revertir){
+      this.estadoPartida.pop()
+      var nuevoEstadoActual: Estado = this.estadoPartida[this.estadoPartida.length-1];
+      this.jugadoresService.reemplazarPlayers(nuevoEstadoActual.vecJug);
+      //this.jugadoresService.players=nuevoEstadoActual.vecJug;
+      this.jugadoresService.partidaTerminada=nuevoEstadoActual.partTerm;
+      this.jugadoresService.contador=nuevoEstadoActual.contHist;
+      this.jugadoresService.historial=nuevoEstadoActual.historial;
+    }
   }
 
   finalizarPartida(): boolean{
@@ -29,8 +52,4 @@ export class JuegoComponent implements OnInit {
   volverInicio(){
     this.ruta.navigate(['']);
   }
-
-  // func(abc: boolean){
-  //   console.log(abc)
-  // }
 }

@@ -6,14 +6,19 @@ import { Jugador } from '../model/jugador';
 })
 export class JugadoresService {
 
+  //Grupo de jugadores
+  players:Array<Jugador> = new Array<Jugador>();
+
+  //Variables auxiliares
   contador: number = 1;
   jugadoresListos: boolean = false;
   playerSeleccionado:number = 0 //es el indice del jugador
-  players:Array<Jugador> = new Array<Jugador>();
   historial: string = 'Bienvenido a Monopoly!. Que comience la partida';
   partidaTerminada: boolean = false;
 
   constructor() {
+    this.players.push(new Jugador(0,"Jugador 1",0,false));
+    this.players.push(new Jugador(1,"Jugador 2",0,false));
   }
   newGame(){
     this.contador = 1;
@@ -23,6 +28,14 @@ export class JugadoresService {
     this.playerSeleccionado = 0;
     this.historial = 'Bienvenido a Monopoly!. Que comience la partida';
     this.partidaTerminada = false;
+  }
+
+  reemplazarPlayers(jugadores: Array<Jugador>){
+    this.players.splice(0,this.players.length);
+    jugadores.forEach(player => {
+      var jugAux = new Jugador(player.id,player.nombre,player.monto,player.estaBancarrota);
+      this.players.push(jugAux);
+    });
   }
 
   obtenerJugadores():Array<Jugador>{
