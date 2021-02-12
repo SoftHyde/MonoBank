@@ -9,7 +9,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class HistorialComponent implements OnInit {
 
   @Output() salidaRevert: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output() salidaCamb: EventEmitter<boolean> = new EventEmitter<boolean>()
   @Input() entrada: number;
+  @Input() deshacerListo: boolean;
   seg: number = 0;
   min: number = 0;
   hor: number = 0;
@@ -40,10 +42,11 @@ export class HistorialComponent implements OnInit {
 
   pataPuto():void{
     this.juadoresService.actualizarHistorial("Pata Puto \n\n")
+    this.salidaCamb.emit(true);
   }
 
   deshacer():void{
-    this.salidaRevert.emit(true);
+    if (this.deshacerListo) this.salidaRevert.emit(true);
   }
 
 }

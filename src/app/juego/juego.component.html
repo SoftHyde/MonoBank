@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <app-historial (salidaRevert)="revertirCambio($event)" [entrada]="this.estadoPartida.length"></app-historial>
+      <app-historial (salidaRevert)="revertirCambio($event)" (salidaCamb)="cambioEstado($event)" [entrada]="this.estadoPartida.length" [deshacerListo]="this.deshacerListo"></app-historial>
     </div>
   </ng-template>
 </div>

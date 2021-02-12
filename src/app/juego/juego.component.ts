@@ -12,6 +12,7 @@ import { JugadoresService } from '../services/jugadores.service';
 export class JuegoComponent implements OnInit {
 
   estadoPartida: Array<Estado> = new Array<Estado>();
+  deshacerListo: boolean = true;
   constructor(public jugadoresService: JugadoresService , private ruta: Router) { }
 
   ngOnInit(): void {
@@ -35,13 +36,14 @@ export class JuegoComponent implements OnInit {
 
   revertirCambio(revertir: boolean){
     if (revertir){
+      this.deshacerListo=false;
       this.estadoPartida.pop()
       var nuevoEstadoActual: Estado = this.estadoPartida[this.estadoPartida.length-1];
       this.jugadoresService.reemplazarPlayers(nuevoEstadoActual.vecJug);
-      //this.jugadoresService.players=nuevoEstadoActual.vecJug;
       this.jugadoresService.partidaTerminada=nuevoEstadoActual.partTerm;
       this.jugadoresService.contador=nuevoEstadoActual.contHist;
       this.jugadoresService.historial=nuevoEstadoActual.historial;
+      this.deshacerListo=true;
     }
   }
 
