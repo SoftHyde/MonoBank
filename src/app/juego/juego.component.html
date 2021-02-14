@@ -5,15 +5,17 @@
     <br><button class="btn btn-outline-primary col-md-12" (click)="volverInicio()">Finalizar Partida</button>
   </div>
   <ng-template #elseBlock>
-    <div class="col-md-8" style="display: flex; align-items: center;">
-      <div class="col-md-12">
-        <app-gestor-jugador (salidaCamb)="cambioEstado($event)"> </app-gestor-jugador><br>
-        <app-jugador (salidaCamb)="cambioEstado($event)"> </app-jugador>
-        <app-lista-jugadores> </app-lista-jugadores>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="col-md-12">
+          <app-gestor-jugador (salidaCamb)="cambioEstado($event)"> </app-gestor-jugador><br>
+          <app-jugador (salidaCamb)="cambioEstado($event)"> </app-jugador>
+          <app-lista-jugadores> </app-lista-jugadores><br>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <app-historial (salidaRevert)="revertirCambio($event)" (salidaCamb)="cambioEstado($event)" [entrada]="this.estadoPartida.length" [deshacerListo]="this.deshacerListo"></app-historial>
+      <div class="col-md-4">
+        <app-historial (salidaRevert)="revertirCambio($event)" (salidaCamb)="cambioEstado($event)" [entrada]="this.estadoPartida.length" [deshacerListo]="this.deshacerListo"></app-historial>
+      </div>
     </div>
   </ng-template>
 </div>

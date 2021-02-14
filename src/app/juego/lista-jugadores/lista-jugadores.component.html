@@ -1,5 +1,6 @@
-<div class="col-md-12" style="display: flex; justify-content: space-evenly;">
-  <div class="col" *ngFor="let item of this.obtenerJugadores();let indice=index">
+<!-- <div class="col-md-12" style="display: flex; justify-content: space-evenly;"> -->
+<div class="col-md-12 d-flex flex-wrap">
+  <div class="col" style="padding-bottom: 5px;" *ngFor="let item of this.obtenerJugadores();let indice=index">
     <div *ngIf="this.esSeleccionado(indice); else elseBlock"> <button class="btn btn-outline-success col-md-12" (click)="jugadorSeleccionado(item)" [disabled]="item.estaBancarrota"> {{item.nombre}} </button> </div>
     <ng-template #elseBlock> <button class="btn btn-outline-primary col-md-12" (click)="jugadorSeleccionado(item)" [disabled]="item.estaBancarrota"> {{item.nombre}} </button> </ng-template>
   </div>

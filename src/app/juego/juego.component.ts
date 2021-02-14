@@ -21,7 +21,6 @@ export class JuegoComponent implements OnInit {
     }
     else this.cambioEstado(true)
   }
-  //probando algo
 
   cambioEstado(cambiar: boolean){
     if (cambiar){
