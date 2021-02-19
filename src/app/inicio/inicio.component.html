@@ -10,10 +10,10 @@
       <div class="col">
         <input type="text" class="form-control" placeholder="Nombre Jugador" style="margin-right: 10px; text-align: center;" [(ngModel)]="item.nombre">
       </div>
-    </div><br>
-    <label> Ingrese el monto inicial: </label>
+    </div>
+    <label style="padding-top: 15px;"> Ingrese el monto inicial: </label>
     <input type="number" [(ngModel)]="monto" class="form-control" style="text-align: center; border-color: green;" placeholder="{{1500| currency}}" min="0">
     <small class="text-danger" *ngIf="verificarMonto()">Escribí un numero mayor a 0</small>
-    <br><button class="btn btn-outline-primary" [disabled]="verificarMonto()" (click)="confirmarJugadores()"> Comenzar! </button>
+    <br><button class="btn btn-outline-success" [disabled]="verificarMonto()" (click)="confirmarJugadores()"> Comenzar! </button>
   </div>
 </div>

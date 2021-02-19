@@ -1,21 +1,29 @@
-<div class="col-md-12" style="display:flex; justify-content: space-evenly; text-align: center; max-height: 60vh;">
-  <div class="col-md-4" *ngIf="this.finalizarPartida(); else elseBlock" >
-    <p>Felicidades {{this.jugadoresService.obtenerJugadorSeleccionado().nombre}}, lograste regular el mercado a gusto, enseñale al resto de tus compañeros antes de apretar el siguiente boton y terminar la partida! </p>
-    <img src="https://i.pinimg.com/originals/50/0f/cc/500fccb1a4f18be709b1a70e5fdd7a56.gif" style="height: 55%; width: 100%;"><br>
-    <br><button class="btn btn-outline-primary col-md-12" (click)="volverInicio()">Finalizar Partida</button>
-  </div>
-  <ng-template #elseBlock>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="col-md-12">
-          <app-gestor-jugador (salidaCamb)="cambioEstado($event)"> </app-gestor-jugador><br>
-          <app-jugador (salidaCamb)="cambioEstado($event)"> </app-jugador>
-          <app-lista-jugadores> </app-lista-jugadores><br>
-        </div>
+<div class="conteiner">
+  <div class="col-md-12 " style="text-align: center;">
+
+    <div class="d-flex flex-wrap align-items-center" *ngIf="this.finalizarPartida(); else elseBlock">
+      <div class="col-md-7">
+        <img class="img" src="https://i.pinimg.com/originals/50/0f/cc/500fccb1a4f18be709b1a70e5fdd7a56.gif" style="height: 55%; width: 100%;"><br>
       </div>
-      <div class="col-md-4">
-        <app-historial (salidaRevert)="revertirCambio($event)" (salidaCamb)="cambioEstado($event)" [entrada]="this.estadoPartida.length" [deshacerListo]="this.deshacerListo"></app-historial>
+      <div class="col-md-5" >
+        <p>Felicidades {{this.jugadoresService.obtenerJugadorSeleccionado().nombre}}, lograste regular el mercado a gusto, enseñale al resto de tus compañeros antes de apretar el siguiente boton y terminar la partida! </p>
+        <br><button class="btn btn-outline-primary col-md-12" (click)="volverInicio()">Finalizar Partida</button>
       </div>
     </div>
-  </ng-template>
+
+    <ng-template #elseBlock>
+      <div class="d-flex flex-wrap align-items-center">
+        <div class="col-md-8">
+          <div class="col-md-12">
+            <app-gestor-jugador (salidaCamb)="cambioEstado($event)"> </app-gestor-jugador>
+            <app-jugador (salidaCamb)="cambioEstado($event)"> </app-jugador>
+            <app-lista-jugadores> </app-lista-jugadores>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <app-historial (salidaRevert)="revertirCambio($event)" (salidaCamb)="cambioEstado($event)" [entrada]="this.estadoPartida.length" [deshacerListo]="this.deshacerListo"></app-historial>
+        </div>
+      </div>
+    </ng-template>
+  </div>
 </div>
