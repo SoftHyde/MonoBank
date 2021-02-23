@@ -1,29 +1,33 @@
 <div class="conteiner">
   <div class="col-md-12 " style="text-align: center;">
 
-    <div class="d-flex flex-wrap align-items-center" *ngIf="this.finalizarPartida(); else elseBlock">
-      <div class="col-md-7">
-        <img class="img" src="https://i.pinimg.com/originals/50/0f/cc/500fccb1a4f18be709b1a70e5fdd7a56.gif" style="height: 55%; width: 100%;"><br>
+    <section *ngIf="this.finalizarPartida(); else elseBlock">
+      <div class="d-flex flex-wrap align-items-center">
+        <div class="col-md-7">
+          <img class="img" src="https://i.pinimg.com/originals/50/0f/cc/500fccb1a4f18be709b1a70e5fdd7a56.gif" style="height: 55%; width: 100%;" [@inOutAnimation]><br>
+        </div>
+        <div class="col-md-5" >
+          <p>Felicidades {{this.jugadoresService.obtenerJugadorSeleccionado().nombre}}, lograste regular el mercado a gusto, enseñale al resto de tus compañeros antes de apretar el siguiente boton y terminar la partida! </p>
+          <br><button class="btn btn-outline-primary col-md-12" (click)="volverInicio()">Finalizar Partida</button>
+        </div>
       </div>
-      <div class="col-md-5" >
-        <p>Felicidades {{this.jugadoresService.obtenerJugadorSeleccionado().nombre}}, lograste regular el mercado a gusto, enseñale al resto de tus compañeros antes de apretar el siguiente boton y terminar la partida! </p>
-        <br><button class="btn btn-outline-primary col-md-12" (click)="volverInicio()">Finalizar Partida</button>
-      </div>
-    </div>
+    </section>
 
     <ng-template #elseBlock>
-      <div class="d-flex flex-wrap align-items-center">
-        <div class="col-md-8">
-          <div class="col-md-12">
-            <app-gestor-jugador (salidaCamb)="cambioEstado($event)"> </app-gestor-jugador>
-            <app-jugador (salidaCamb)="cambioEstado($event)"> </app-jugador>
-            <app-lista-jugadores> </app-lista-jugadores>
+      <section>
+        <div class="d-flex flex-wrap align-items-center">
+          <div class="col-md-8">
+            <div class="col-md-12">
+              <app-gestor-jugador (salidaCamb)="cambioEstado($event)"> </app-gestor-jugador>
+              <app-jugador (salidaCamb)="cambioEstado($event)"> </app-jugador>
+              <app-lista-jugadores> </app-lista-jugadores>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <app-historial (salidaRevert)="revertirCambio($event)" (salidaCamb)="cambioEstado($event)" [entrada]="this.estadoPartida.length" [deshacerListo]="this.deshacerListo"></app-historial>
           </div>
         </div>
-        <div class="col-md-4">
-          <app-historial (salidaRevert)="revertirCambio($event)" (salidaCamb)="cambioEstado($event)" [entrada]="this.estadoPartida.length" [deshacerListo]="this.deshacerListo"></app-historial>
-        </div>
-      </div>
+      </section>
     </ng-template>
   </div>
 </div>
