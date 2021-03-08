@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Estado } from '../model/Estado';
 import { Jugador } from '../model/jugador';
 import { JugadoresService } from '../services/jugadores.service';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-juego',
@@ -37,13 +37,18 @@ export class JuegoComponent implements OnInit {
 
   estadoPartida: Array<Estado> = new Array<Estado>();
   deshacerListo: boolean = true;
-  constructor(public jugadoresService: JugadoresService , private ruta: Router) { }
+  wakeLock = null;
+
+  constructor(public jugadoresService: JugadoresService , private ruta: Router) {
+  }
 
   ngOnInit(): void {
     if (this.jugadoresService.jugadoresListos==false){
       this.ruta.navigate(['']);
     }
-    else this.cambioEstado(true)
+    else {
+      this.cambioEstado(true)
+    }
   }
 
   cambioEstado(cambiar: boolean){

@@ -53,7 +53,7 @@ export class JugadoresService {
     }
   }
 
-  eliminarJugador(eraseJugador: Jugador): void{
+  eliminarJugador(eraseJugador: Jugador){
     if (this.players.length>2){
       this.players = this.players.filter(jug => jug.id!=eraseJugador.id);
     }

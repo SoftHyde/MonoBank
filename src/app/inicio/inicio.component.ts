@@ -10,7 +10,8 @@ import { Router, Routes } from '@angular/router';
 })
 export class InicioComponent implements OnInit {
   monto: string = "1500"
-
+  masJugadores: boolean = true;
+  menosJugadores: boolean = false;
   constructor(private jugadoresService: JugadoresService , private ruta: Router) { }
 
   ngOnInit(): void {
@@ -23,11 +24,19 @@ export class InicioComponent implements OnInit {
 
   agregarJugador(): void{
     var player: Jugador = new Jugador(this.jugadoresService.players.length, "Jugador "+(this.jugadoresService.players.length+1),0,false);
-    this.jugadoresService.agregarJugador(player);
+    this.jugadoresService.agregarJugador(player)
+    if (this.jugadoresService.players.length<8) this.masJugadores=true;
+    else this.masJugadores=false;
+    if (this.jugadoresService.players.length>2) this.menosJugadores=true;
+    else this.menosJugadores=false;
   }
 
   eliminarJugador(): void{
-    this.jugadoresService.eliminarJugador(this.jugadoresService.players[this.jugadoresService.players.length-1]);
+    this.jugadoresService.eliminarJugador(this.jugadoresService.players[this.jugadoresService.players.length-1])
+    if (this.jugadoresService.players.length>2) this.menosJugadores=true;
+    else this.menosJugadores=false;
+    if (this.jugadoresService.players.length<8) this.masJugadores=true;
+    else this.masJugadores=false;
   }
 
   confirmarJugadores():void{

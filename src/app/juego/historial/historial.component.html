@@ -1,11 +1,10 @@
 <div class="conteiner">
   <p style="padding-top: 15px;">Tiempo jugado: {{(this.hor | number :'2.0-0') + ":" + (this.min | number :'2.0-0') + ":" + (this.seg | number :'2.0-0')}}</p>
-  <div class="card conteiner jumbotron" style="overflow-y: scroll;">
+  <div class="card conteiner jumbotron" style="overflow-y: scroll; padding-top: 32px;">
     <div class="card-body">
       <p class="card-text">{{obtenerHistorial()}}</p>
     </div>
   </div>
-  <!-- <p class="container jumbotron textoHistorial" style="background-color:darkgrey; overflow-y:scroll; max-height:75%; min-height: 75%; text-align: left;"> {{obtenerHistorial()}} </p> -->
   <div class="col-md-12 d-flex flex-wrap">
     <div class="col" style="padding-bottom: 15px;">
       <button class="btn btn-outline-danger col-md-12" (click)="deshacer()" [disabled]="entrada==1">Deshacer</button>
@@ -15,4 +14,3 @@
     </div>
   </div>
 </div>
-

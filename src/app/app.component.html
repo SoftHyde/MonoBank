@@ -1,10 +1,13 @@
-<div class="container col" style="max-width: 100%;">
-  <div class="jumbotron banner">
+<div>
+  <div class="container col" style="padding: 0px;">
+    <div class="jumbotron banner" style="border-radius: 0px;">
+    </div>
   </div>
-</div>
-<button class="btn btn-flotante" data-toggle="modal" data-target="#modalAyuda">REGLAS</button>
-<div class="container jumbotron panel shadow p-3 mb-5 bg-white rounded" style="background-color: ghostwhite;">
-  <router-outlet></router-outlet>
+  <button class="btn btn-flotante" data-toggle="modal" data-target="#modalAyuda"><img src="https://static.thenounproject.com/png/2560148-200.png" style="max-height: 40px;"/></button>
+  <!-- <button class="btn btn-dark" (click)="cambiarDarkMode()"><img src="https://cdn1.iconfinder.com/data/icons/user-interface-16x16-vol-1/16/contrast-circle-512.png" style="max-height: 40px;"/></button> -->
+  <div class="container jumbotron panel shadow p-3 mb-5 bg-white rounded dark-mode">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <!-- Modal Ayuda -->
